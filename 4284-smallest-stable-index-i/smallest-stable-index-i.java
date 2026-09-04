@@ -1,19 +1,17 @@
 class Solution {
     public int firstStableIndex(int[] nums, int k) {
-        int ss = -1;
-        List<Integer> list = new ArrayList<>();
-        for(int num : nums){
-            list.add(num);
-        }
-        for(int i=nums.length-1; i>=0; i--){
-            List<Integer> maxsublist = list.subList(0,i+1);
-            List<Integer> minsublist = list.subList(i,nums.length);
-            int max = Collections.max(maxsublist);
-            int min = Collections.min(minsublist);
+        int StableIndex = -1;
+        int min = Integer.MAX_VALUE;
+        for(int i = nums.length-1; i >= 0; i--){
+            min = Math.min(min,nums[i]);
+            int max = Integer.MIN_VALUE;
+            for(int j = 0; j<=i; j++){
+                max = Math.max(max,nums[j]);
+            }
             if(max - min <= k){
-                ss = i;
+                StableIndex = i;
             }
         }
-        return ss;
+        return StableIndex;
     }
 }
