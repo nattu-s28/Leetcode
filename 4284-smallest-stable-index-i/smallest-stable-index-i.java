@@ -1,17 +1,23 @@
 class Solution {
     public int firstStableIndex(int[] nums, int k) {
-        int StableIndex = -1;
+        
+        int[] arr = new int[nums.length];
+
         int min = Integer.MAX_VALUE;
-        for(int i = nums.length-1; i >= 0; i--){
+        for(int i=nums.length-1; i>=0; i--){
             min = Math.min(min,nums[i]);
-            int max = Integer.MIN_VALUE;
-            for(int j = 0; j<=i; j++){
-                max = Math.max(max,nums[j]);
-            }
-            if(max - min <= k){
-                StableIndex = i;
+            arr[i] = min;
+
+        }
+        int max = Integer.MIN_VALUE;
+        for(int j=0; j<nums.length; j++){
+            max = Math.max(max,nums[j]);
+            arr[j] = max - arr[j];
+            if(arr[j] <= k){
+                return j;
             }
         }
-        return StableIndex;
+
+        return -1;
     }
 }
