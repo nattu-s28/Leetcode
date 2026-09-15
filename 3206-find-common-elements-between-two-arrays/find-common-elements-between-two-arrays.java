@@ -2,13 +2,11 @@ class Solution {
     public int[] findIntersectionValues(int[] nums1, int[] nums2) {
         List<Integer> numsList1 = new ArrayList<>();
         List<Integer> numsList2 = new ArrayList<>();
-        for(int i=0,j=0; i<100; j++,i++){
-            if(i < nums1.length){
+        for(int i=0; i < nums1.length;i++){
                 numsList1.add(nums1[i]);
-            }
-            if(j < nums2.length){
+        }
+        for(int j=0; j < nums2.length;j++){
                 numsList2.add(nums2[j]);
-            }
         }
         int cnt1 = 0;
         for(int num : numsList1){
