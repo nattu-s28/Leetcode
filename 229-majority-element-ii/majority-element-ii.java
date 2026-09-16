@@ -8,6 +8,9 @@ class Solution {
         for(int num : map.keySet()){
             if(map.get(num) > nums.length/3){
                 list.add(num);
+                if(list.size() == 2){
+                    break;
+                }
             }
         }
         return list;
