@@ -1,13 +1,14 @@
 class Solution {
     public int sumOfUnique(int[] nums) {
-        HashMap<Integer,Integer> map = new HashMap<>();
+        int[] arr = new int[101];
+
         int sum = 0;
-        for(int num : nums){
-            map.put(num,map.getOrDefault(num,0)+1);
+        for(int i=0; i<nums.length; i++){
+            arr[nums[i]]++;
         }
-        for(int num : map.keySet()){
-            if(map.get(num) == 1){
-                sum += num;
+        for(int i=1; i<arr.length; i++){
+            if(arr[i] == 1){
+                sum += i;
             }
         }
         return sum;
