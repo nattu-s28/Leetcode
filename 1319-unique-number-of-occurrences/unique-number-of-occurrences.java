@@ -2,8 +2,7 @@ class Solution {
     public boolean uniqueOccurrences(int[] arr) {
         Arrays.sort(arr);
         int n = arr.length;
-        int size = (n*(n+1))/2;
-        int[] frequencycount = new int[size];
+        int[] frequencycount = new int[1000];
         int idx = 0;
         int cnt = 1;
         for(int i=1; i<arr.length; i++){
