@@ -1,0 +1,23 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def oddEvenList(self, head: ListNode | None) -> ListNode | None:
+
+        if not head or not head.next:
+            return head
+
+        odd = head
+        Even = head.next
+        Evenhead = Even
+
+        while Even and Even.next:
+            odd.next = Even.next
+            odd = odd.next
+            Even.next = odd.next
+            Even = Even.next
+
+        odd.next = Evenhead
+        return head
