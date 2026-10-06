@@ -10,16 +10,11 @@ class Solution:
         isFound = False
         while fast and fast.next:
             slow = slow.next
-            if isFound:
-                fast = fast.next
-            else:
-                fast = fast.next.next
+            fast = fast.next.next
             if slow == fast:
-                if isFound:
-                    return slow
-                else:
-                    fast = head
-                    isFound = True
-                    if slow == head:
-                        return slow
+                fast =  head
+                while slow != fast:
+                    slow = slow.next
+                    fast = fast.next
+                return slow
         return None
