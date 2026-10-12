@@ -10,9 +10,6 @@ class Solution:
         while curr:
             ls.append(curr.val)
             curr = curr.next
-        for i in range(len(ls)):
-            if i > len(ls)-i-1:
-                break
-            if ls[i] != ls[len(ls)-i-1]:
-                return False
-        return True
+        if ls == ls[::-1]:
+            return True
+        return False
