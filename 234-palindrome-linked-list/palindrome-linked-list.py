@@ -10,6 +10,4 @@ class Solution:
         while curr:
             ls.append(curr.val)
             curr = curr.next
-        if ls == ls[::-1]:
-            return True
-        return False
+        return True if ls == ls[::-1] else False
